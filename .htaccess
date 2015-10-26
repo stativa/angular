@@ -1,0 +1,11 @@
+RewriteEngine   On
+RewriteBase     /
+RewriteCond     %{REQUEST_URI} !^(/index\.php|/img|/js|/css|/robots\.txt|/favicon\.ico)
+RewriteCond     %{REQUEST_FILENAME} !-f
+RewriteCond     %{REQUEST_FILENAME} !-d
+RewriteRule     .               /index.html
+
+
+
+#there are links which are changed, I don't want to miss my SEO work.
+Redirect 301 /catalog/category/halaty http://blog.halatik.com.ua/catalog/halaty

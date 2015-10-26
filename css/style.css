@@ -1,0 +1,25 @@
+﻿html, body {margin:0; padding:0; height:100%;}
+.container {position: relative;	min-width:999px; min-height:100%;}
+* html .container {height: 100%;}
+*html body {width:expression( documentElement.clientWidth < 999 ? (documentElement.clientWidth == 0 ? (body.clientWidth < 999 ? "999" : "auto") : "999px") : "auto" );}
+img {border:none;}
+* {margin:0px; padding:0px;}
+
+.header {position:relative; height:160px;}
+.header2 {position:relative; height:40px;}
+
+
+.left {float:left; position:relative; width:200px;}
+.right {float:right; position:relative; width:200px;}
+
+
+.end_content {position:relative; height:100px; clear:both;}
+.txt {padding-left:200px;padding-right:200px;}
+
+
+
+.footer {min-width:999px; position:relative; margin-top:-100px; height:100px;}
+
+
+
+
