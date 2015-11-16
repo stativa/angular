@@ -1,12 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="Halatik">
+<!DOCTYPE html>
+<html ng-app="app" ng-strict-di>
 <head>
-	<title></title>
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<base href="/" />
-	<link rel="stylesheet" href="css/style.css" type="text/css" />   
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <base href="/" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />   
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />  
 
 </head>
@@ -14,55 +14,35 @@
 
 <body>
  <div class="conteiner">
-	<div class="header">title</div>
-	<div class="header2">title</div>
-	<div class="left">
-		<ul ng-controller="MenuController"> 
-    		<li ng-repeat="menu in categories">
-		      <a href="/catalog/{{menu.translit}}">{{menu.name}}</a>
-		     </li>
-		 </ul>
+    <div class="header">title</div>
+    <div class="header2">title</div>
+    <div class="left">
+        <ul ng-controller="MenuController">
+            <li ng-repeat="menu in categories">
+              <a href="/catalog/{{menu.translit}}">{{menu.name}}</a>
+             </li>
+         </ul>
      
-     	 
-	</div><!-- /left -->
+          
+    </div><!-- /left -->
 
-	<div class="right">
-		<h4>RG</h4> <h4>RG</h4> <h4>RG</h4>
-	</div><!-- /right -->
+    <div class="right">
+        <h4>RG</h4> <h4>RG</h4> <h4>RG</h4>
+    </div><!-- /right -->
    
-	<div class="txt">        
-   	<div ng-view></div>  
-	</div><!-- /txt -->
+    <div class="txt">        
+       <div ng-view></div>  
+    </div><!-- /txt -->
 
-
-         
       
-	<div class="end_content"></div>
+    <div class="end_content"></div>
 </div><!-- /conteiner -->
 
 
-	<div class="footer">
-    	
+    <div class="footer">
+        
   </div>
-    
-  <!-- load js libs -->
-  <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>  
-  <script type="text/javascript" src="js/angular.min.js"></script>
-  <script type="text/javascript" src="js/angular-route.min.js"></script>
-  <script type="text/javascript" src="js/ui-bootstrap-tpls-0.12.1.min.js"></script>
 
-
-  <script type="text/javascript" src="js/app.js"></script>
-  <script type="text/javascript" src="js/routes.js"></script>
-  
-  
-  <!-- controllers -->
-  <script type="text/javascript" src="js/controllers/menu-controller.js"></script>
-  <script type="text/javascript" src="js/controllers/main-page-controller.js"></script>
-  <script type="text/javascript" src="js/controllers/catalog-item-controller.js"></script>
-  <script type="text/javascript" src="js/controllers/catalog-category-controller.js"></script>
-  
-  
-  
+<script data-main="/js/index.js" src="/vendors/require.js"></script>
 </body>
 </html>
