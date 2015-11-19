@@ -6,7 +6,7 @@ define( function() {
         $http.get('categories.json').success(function(data){
             console.log(data)
             angular.forEach(data, function(index) {
-                index.p_id == 0 ? $scope.categories.push(index) : $.noop();
+                index.p_id == 0 ? $scope.categories.push(index) : null;
             });
         });
     }];

@@ -1,9 +1,10 @@
 define( function ( ) {
-    return function( $stateProvider, $urlRouterProvider ) {
+    return ['$stateProvider', '$urlRouterProvider', function( $stateProvider, $urlRouterProvider ) {
 
-        $urlRouterProvider.otherwise({redirectTo: '/404'});
 
-        $stateProvider
+        $urlRouterProvider.otherwise('/404');
+
+        return $stateProvider
             .state('catalogItem', {
                 url:         '/item/:id',
                 templateUrl: 'templates/catalog-item-list.html',
@@ -21,5 +22,5 @@ define( function ( ) {
                 controller:  'MainController',
                 //reloadOnSearch: false
             });
-    };
+    }];
 });

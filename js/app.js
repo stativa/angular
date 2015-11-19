@@ -19,7 +19,7 @@ define( function( require, exports, module ){
 
     //bootstrap angular
     angular.element( document.documentElement ).ready( function () {
-        //angular.bootstrap( document, [app.name] );
+        angular.bootstrap( document, [app.name] );
     });
 
     module.exports = app;
