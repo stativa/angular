@@ -19,13 +19,17 @@ define( function() {
             });
             angular.forEach(data, function(index) {
                 if (index.cat_id == currentCategoryId && index.view == 1) {
-                    $scope.items.push(index) ;
+                    $scope.items.push(index);
                 }
             });
             //////////////////////////////////////////// copied
             $scope.pageChanged = function() {
-                $scope.currentPage > 1 ? $location.search("page=" + $scope.currentPage) : $location.search("");
-                $("body").scrollTop();
+                if ($scope.currentPage > 1) {
+                    $location.search("page=" + $scope.currentPage) ;
+                } else {
+                    $location.search("");
+                }
+                window.scrollTo(0,0);
             };
             $scope.numPerPage = 10,
                 /* TODO: chage $location.$$url.indexOf("=") with this

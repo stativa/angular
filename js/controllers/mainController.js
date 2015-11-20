@@ -10,9 +10,13 @@ define( function() {
                 }
             });
 
+            //////////////////////////////////////////// copied
             $scope.pageChanged = function() {
-                $scope.currentPage > 1 ?
-                        $location.search("page=" + $scope.currentPage) : $location.search("");
+                if ($scope.currentPage > 1) {
+                    $location.search("page=" + $scope.currentPage) ;
+                } else {
+                    $location.search("");
+                }
                 window.scrollTo(0,0);
             };
             /* TODO: chage $location.$$url.indexOf("=") with this
@@ -28,6 +32,7 @@ define( function() {
                     end = begin + $scope.numPerPage;
                 $scope.filteredItems = $scope.items.slice(begin, end);
             });
+            //////////////////////////////////////////// 
         });
     }];
 });
