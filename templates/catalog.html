@@ -1,4 +1,4 @@
-sdf<ul style="width: 100%; float:left; list-style:none;">
+<ul style="width: 100%; float:left; list-style:none;">
 	<li ng-repeat="item in filteredItems" style="padding:0 0 20px 0; width: 20%; float:left;">
     <a href="/item/{{item.id}}-{{item.translit}}"><img ng-src="http://halatik.com.ua/view/frontend/img/items/{{item.id}}.jpg" width="50" /></a>
     <h4>{{item.name}}</h4>
@@ -6,6 +6,7 @@ sdf<ul style="width: 100%; float:left; list-style:none;">
     <p>{{item.price}} грн.</p>
  </li>
 </ul>
+
  <pagination 
       ng-model="currentPage"
       total-items="items.length"
@@ -13,5 +14,5 @@ sdf<ul style="width: 100%; float:left; list-style:none;">
       boundary-links="false"
       next-text="вперед"
       previous-text="назад"
- ng-change="pageChanged()">
-    </pagination>
+      ng-change="pageChanged()">
+ </pagination>

@@ -1,18 +1,19 @@
 define( function() {
     "use strict";
 
-    return ['$http', '$scope', '$location', function( $http, $scope, $location ){
-        console.log(1)
+    return ['$http', '$scope', '$location', function( $http, $scope, $location ) {
         $scope.items = [];
         $http.get('items.json').success(function(data){
             angular.forEach(data, function(index) {
-                index.cat_id == 1 && index.view == 1 ? $scope.items.push(index) : $.noop();
+                if (index.cat_id == 1 && index.view == 1) {
+                    $scope.items.push(index);
+                }
             });
-            ////////////////////////////////////////////
+
             $scope.pageChanged = function() {
                 $scope.currentPage > 1 ?
                         $location.search("page=" + $scope.currentPage) : $location.search("");
-                $("body").scrollTop();
+                window.scrollTo(0,0);
             };
             /* TODO: chage $location.$$url.indexOf("=") with this
              *    var url = window.location.hash;
@@ -24,7 +25,7 @@ define( function() {
                             $location.$$url.substr($location.$$url.indexOf("=")+1) : 1;
             $scope.$watch('currentPage + numPerPage', function() {
                 var begin = (($scope.currentPage - 1) * $scope.numPerPage),
-                        end = begin + $scope.numPerPage;
+                    end = begin + $scope.numPerPage;
                 $scope.filteredItems = $scope.items.slice(begin, end);
             });
         });
