@@ -12,18 +12,11 @@ define( function() {
 
             //////////////////////////////////////////// copied
             $scope.pageChanged = function() {
-                if ($scope.currentPage > 1) {
-                    $location.search("page=" + $scope.currentPage) ;
-                } else {
-                    $location.search("");
-                }
+                $scope.currentPage > 1 ?
+                    $location.search("page=" + $scope.currentPage) : $location.search("");
                 window.scrollTo(0,0);
             };
-            /* TODO: chage $location.$$url.indexOf("=") with this
-             *    var url = window.location.hash;
-             *  var urlAux = url.split('=');
-             *  var img_id = urlAux[1];
-             */
+
             $scope.numPerPage = 10,
                     $scope.currentPage = $location.$$url.indexOf('page=') + 1 ?
                             $location.$$url.substr($location.$$url.indexOf("=")+1) : 1;
@@ -32,7 +25,7 @@ define( function() {
                     end = begin + $scope.numPerPage;
                 $scope.filteredItems = $scope.items.slice(begin, end);
             });
-            //////////////////////////////////////////// 
+            ////////////////////////////////////////////
         });
     }];
 });
