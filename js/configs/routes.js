@@ -1,12 +1,10 @@
 define( function ( ) {
     return ['$stateProvider', '$urlRouterProvider', function( $stateProvider, $urlRouterProvider ) {
-
-
         $urlRouterProvider.otherwise('/404');
 
         return $stateProvider
             .state('catalogItem', {
-                url:         '/item/:id',
+                url:         '/catalog/:category/:id-:name',
                 templateUrl: 'templates/catalog-item-list.html',
                 controller:  'ItemController'
             })
