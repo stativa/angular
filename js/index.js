@@ -11,7 +11,8 @@ requirejs.config({
         'angularBootstrap': './vendors/angular-bootstrap.min',
         'angularResource':  './vendors/angular-resource',
         'configs':          'js/configs',
-        'controllers':      'js/controllers'
+        'controllers':      'js/controllers',
+        'directives':       'js/directives'
     },
     priority: [
         'angular'
