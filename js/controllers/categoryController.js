@@ -3,6 +3,7 @@ define( function() {
 
     return ['$http', '$scope', '$location', '$controller', function( $http, $scope, $location, $controller ) {
         $scope.items = [];
+        $scope.category;
         angular.extend(this, $controller('MenuController', {$scope: $scope}));
         $http.get('items.json').success(function(data){
             /*
@@ -10,10 +11,10 @@ define( function() {
              * Выбираем втрой элемент для категории
              * Если у нас урл вида catalog/kostjumy_dlja_doma?page=3 - split("?")[0] выделяем все,что до знака вопроса,чтоб точно выделить Категорию
              */
-            var category = $location.$$url.split("/")[2].split("?")[0],
-                currentCategoryId;
+            $scope.category = $location.$$url.split("/")[2].split("?")[0];
+            var currentCategoryId;
             angular.forEach($scope.categories, function(key, value){
-                if (key.translit == category) {
+                if (key.translit == $scope.category) {
                     currentCategoryId = key.id;
                 }
             });
