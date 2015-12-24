@@ -13,14 +13,12 @@ define( function ( ) {
             .state('catalogName', {
                 url:         '/catalog/:name',
                 templateUrl: 'templates/catalog.html',
-                controller:  'CategoryController',
-                //reloadOnSearch: false
+                controller:  'CategoryController'
             })
             .state('main', {
                 url:         '/',
                 templateUrl: 'templates/catalog.html',
-                controller:  'MainController',
-                //reloadOnSearch: false
+                controller:  'MainController'
             });
     }];
 });
