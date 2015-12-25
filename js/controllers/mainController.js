@@ -1,8 +1,11 @@
 define( function() {
     "use strict";
 
-    return ['$http', '$scope', '$location', function( $http, $scope, $location ) {
-        $scope.items = [];
+    return ['$http', '$scope', '$location', '$stateParams', function( $http, $scope, $location, $stateParams ) {
+        $scope.items = [];	
+		var current  = $stateParams.page || 1;
+		$scope.numPerPage = 10;
+		
         $http.get('items.json').success(function(data){
             angular.forEach(data, function(index) {
                 if (index.cat_id == 1 && index.view == 1) {
@@ -16,10 +19,8 @@ define( function() {
                     $location.search("page=" + $scope.currentPage) : $location.search("");
                 window.scrollTo(0,0);
             };
-
-            $scope.numPerPage = 10,
-                    $scope.currentPage = $location.$$url.indexOf('page=') + 1 ?
-                            $location.$$url.substr($location.$$url.indexOf("=")+1) : 1;
+			
+			$scope.currentPage = current;
             $scope.$watch('currentPage + numPerPage', function() {
                 var begin = (($scope.currentPage - 1) * $scope.numPerPage),
                     end = begin + $scope.numPerPage;

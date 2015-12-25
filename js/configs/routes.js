@@ -9,13 +9,13 @@ define( function ( ) {
                 controller:  'ItemController'
             })
             .state('catalogName', {
-                url:         '/catalog/:name',
+                url:         '/catalog/:name?:page',
                 templateUrl: 'templates/catalog.html',
                 controller:  'CategoryController',
                 //reloadOnSearch: false
             })
             .state('main', {
-                url:         '/',
+                url:         '/?:page',
                 templateUrl: 'templates/catalog.html',
                 controller:  'MainController',
                 //reloadOnSearch: false
