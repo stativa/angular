@@ -8,17 +8,24 @@ define( function ( ) {
                 templateUrl: 'templates/catalog-item-list.html',
                 controller:  'ItemController'
             })
-            .state('catalogName', {
-                url:         '/catalog/:name?:page',
+            .state('catalogNamePage', {
+                url:         '/catalog/:name/:page',
                 templateUrl: 'templates/catalog.html',
-                controller:  'CategoryController',
-                //reloadOnSearch: false
+                controller:  'CategoryController'
             })
-            .state('main', {
-                url:         '/?:page',
+			
+			.state('catalogName', {
+                url:         '/catalog/:name',
                 templateUrl: 'templates/catalog.html',
+                controller:  'CategoryController'
+            })
+
+            .state('main', {
+                url:         '/',
+                templateUrl: 'templates/main.html',
                 controller:  'MainController',
                 //reloadOnSearch: false
             });
+			
     }];
 });

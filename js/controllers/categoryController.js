@@ -5,7 +5,9 @@ define( function() {
         $scope.items = [];
         $scope.category = $stateParams.name;
 		$scope.numPerPage = 10;
-		var current  = $stateParams.page || 1;
+		var current  = $stateParams.page || 1,
+			urlBeginer = "catalog/" + $scope.category;
+		
 		
         angular.extend(this, $controller('MenuController', {$scope: $scope}));
         $http.get('items.json').success(function(data){
@@ -23,7 +25,8 @@ define( function() {
             //////////////////////////////////////////// copied
             $scope.pageChanged = function() {
                 $scope.currentPage > 1 ?
-                    $location.search("page=" + $scope.currentPage) : $location.search("");
+                    $location.path(urlBeginer + "/" + $scope.currentPage) : 
+					$location.path(urlBeginer);
                 window.scrollTo(0,0);
             };
 			
