@@ -6,15 +6,15 @@ define( function() {
 		var numPerPage = 10;
 
         $http.get('items.json').success(function(data){
-            angular.forEach(data, function(index, i) {
-
-				
-                if (index.cat_id == 1 && index.view == 1) {
-                    $scope.items.push(index);
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].cat_id == 1) {
+                    $scope.items.push(data[i]);
                 }
-				
-				
-            });
+
+                if ($scope.items.length === numPerPage) {
+                    break;
+                }
+            }
 
         });
     }];
