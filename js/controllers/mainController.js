@@ -2,8 +2,8 @@ define( function() {
     "use strict";
 
     return ['$http', '$scope', '$location', '$stateParams', function( $http, $scope, $location, $stateParams ) {
-        $scope.items = [];	
-		var numPerPage = 10;
+        $scope.items = [];
+        var numPerPage = 10;
 
         $http.get('items.json').success(function(data){
             for (var i = 0; i < data.length; i++) {

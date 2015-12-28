@@ -3,29 +3,25 @@ define( function ( ) {
         $urlRouterProvider.otherwise('/404');
 
         return $stateProvider
-            .state('catalogItem', {
-                url:         '/catalog/:category/:id-:name',
-                templateUrl: 'templates/catalog-item-list.html',
-                controller:  'ItemController'
+            .state('main', {
+                url:         '/',
+                templateUrl: 'templates/catalog.html',
+                controller:  'MainController'
+            })
+            .state('catalogName', {
+                url:         '/catalog/:name/',
+                templateUrl: 'templates/catalog.html',
+                controller:  'CategoryController'
             })
             .state('catalogNamePage', {
                 url:         '/catalog/:name/:page',
                 templateUrl: 'templates/catalog.html',
                 controller:  'CategoryController'
             })
-			
-			.state('catalogName', {
-                url:         '/catalog/:name',
-                templateUrl: 'templates/catalog.html',
-                controller:  'CategoryController'
-            })
-
-            .state('main', {
-                url:         '/',
-                templateUrl: 'templates/catalog.html',
-                controller:  'MainController'
-
+            .state('catalogName.Item', {
+                url:         '/:id-:itemName',
+                templateUrl: 'templates/catalog-item-list.html',
+                controller:  'ItemController'
             });
-			
     }];
 });

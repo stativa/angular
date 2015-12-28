@@ -17,7 +17,7 @@
     <div class="header">title</div>
     <div class="header2">title</div>
     <div class="left">
-        <ul ng-controller="MenuController as panel">
+        <ul ng-controller="MenuController">
             <li ng-repeat="menu in categories" ui-sref-active="active">
               <a ui-sref="catalogName({name : menu.translit})">{{menu.name}}</a>
              </li>

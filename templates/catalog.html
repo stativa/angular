@@ -1,6 +1,6 @@
 <ul style="width: 100%; float:left; list-style:none;">
 	<li ng-repeat="item in filteredItems" style="padding:0 0 20px 0; width: 20%; float:left;">
-    <a ui-sref="catalogItem({category : category, id : item.id, name : item.translit})"><img ng-src="http://halatik.com.ua/view/frontend/img/items/{{item.id}}.jpg" width="50" /></a>
+    <a ui-sref=".Item({name: category, id: item.id, itemName: item.translit})"><img ng-src="http://halatik.com.ua/view/frontend/img/items/{{item.id}}.jpg" width="50" /></a>
     <h4>{{item.name}}</h4>
     <select ng-hide="true"><option ng-repeat="child in item.size" value="{{child}}">{{child}}</option></select>
     <p>{{item.price}} грн.</p>
