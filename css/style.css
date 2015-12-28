@@ -1,7 +1,5 @@
 ﻿html, body {margin:0; padding:0; height:100%;}
 .container {position: relative;	min-width:999px; min-height:100%;}
-* html .container {height: 100%;}
-*html body {width:expression( documentElement.clientWidth < 999 ? (documentElement.clientWidth == 0 ? (body.clientWidth < 999 ? "999" : "auto") : "999px") : "auto" );}
 img {border:none;}
 * {margin:0px; padding:0px;}
 
@@ -23,3 +21,4 @@ img {border:none;}
 
 
 
+.active {border:1px solid red;}
