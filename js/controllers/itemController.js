@@ -4,7 +4,6 @@ define( function() {
     return ['$http', '$scope', '$stateParams', function( $http, $scope, $stateParams ){
         var id = $stateParams.id.split('-')[0];
         $scope.item = [];
-        $stateParams.name = "hello";
         $http.get('items.json').success(function(data){
             angular.forEach(data, function(index) {
                 if (index.id == id) {

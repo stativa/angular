@@ -9,7 +9,7 @@ define( function() {
 		var currentPage  = $stateParams.page || 1,
 			urlBeginer = "catalog/" + $scope.category;
 
-        angular.extend(this, $controller('MenuController', {$scope: $scope}));
+     //   angular.extend(this, $controller('MenuController', {$scope: $scope}));
         $http.get('items.json').success(function(data){
             for (var i = 0; i < data.length; i++) {
                 if (data[i].cat_translit == $scope.category ) {
