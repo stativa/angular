@@ -9,12 +9,12 @@ define( function ( ) {
                 controller:  'MainController'
             })
             .state('catalogName', {
-                url:         '/catalog/:name/',
+                url:         '/catalog/:name',
                 templateUrl: 'templates/catalog.html',
                 controller:  'CategoryController'
             })
-            .state('catalogNamePage', {
-                url:         '/catalog/:name/:page',
+            .state('catalogName.Page', {
+                url:         '/:page',
                 templateUrl: 'templates/catalog.html',
                 controller:  'CategoryController'
             })

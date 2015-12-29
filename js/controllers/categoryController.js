@@ -1,12 +1,12 @@
 define( function() {
     "use strict";
 
-    return ['$http', '$scope', '$location', '$controller', '$stateParams', function( $http, $scope, $location, $controller, $stateParams ) {
+    return ['$http', '$scope', '$location', '$controller', '$state', function( $http, $scope, $location, $controller, $state ) {
         $scope.items = [];
-        $scope.category = $stateParams.name;
+        $scope.category = $state.params.name;
 		$scope.numPerPage = 10;
 
-		var currentPage  = $stateParams.page || 1,
+		var currentPage  = $state.params.page || 1,
 			urlBeginer = "catalog/" + $scope.category;
 
      //   angular.extend(this, $controller('MenuController', {$scope: $scope}));

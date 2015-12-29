@@ -1,6 +1,6 @@
 <ul style="width: 100%; float:left; list-style:none;">
 	<li ng-repeat="item in items" style="padding:0 0 20px 0; width: 20%; float:left;">
-    <a ui-sref="catalogItem({category : item.cat_translit, id : item.id, name : item.translit})">
+	<a ui-sref=".Item({name: item.cat_translit, id: item.id, itemName: item.translit})"><img ng-src="http://halatik.com.ua/view/frontend/img/items/{{item.id}}.jpg" width="50" /></a>
         <img ng-src="http://halatik.com.ua/view/frontend/img/items/{{item.id}}.jpg" width="50" />
     </a>
     <h4>{{item.name}}</h4>
@@ -8,4 +8,3 @@
     <p>{{item.price}} грн.</p>
  </li>
 </ul>
-
