@@ -14,7 +14,7 @@ define( function ( ) {
                 controller:  'CategoryController'
             })
             .state('catalogName.Page', {
-                url:         '/:page',
+                url:         '/page:page',
                 templateUrl: 'templates/catalog.html',
                 controller:  'CategoryController'
             })

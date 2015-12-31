@@ -20,7 +20,7 @@ define( function() {
             //////////////////////////////////////////// copied
             $scope.pageChanged = function() {
                 $scope.currentPage > 1 ?
-                    $location.path(urlBeginer + "/" + $scope.currentPage) : 
+                    $location.path(urlBeginer + "/page" + $scope.currentPage) :
 					$location.path(urlBeginer);
                 window.scrollTo(0,0);
             };
