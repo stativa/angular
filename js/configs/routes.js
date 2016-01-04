@@ -13,13 +13,13 @@ define( function ( ) {
                 templateUrl: 'templates/catalog.html',
                 controller:  'CategoryController'
             })
-            .state('catalogName.Page', {
-                url:         '/page:page',
+           .state('catalogName.Page', {
+                url:         '/page{page:[0-9]{1,2}}',
                 templateUrl: 'templates/catalog.html',
                 controller:  'CategoryController'
             })
             .state('catalogName.Item', {
-                url:         '/:id-:itemName',
+                url:         '/{id:[0-9]{1,5}}-:itemName',
                 templateUrl: 'templates/catalog-item-list.html',
                 controller:  'ItemController'
             });
