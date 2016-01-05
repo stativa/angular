@@ -30,11 +30,9 @@ define( function ( ) {
 
 
             .state('route1', {
-                url: "/route1",
+                url: "/route1-:name",
                 templateUrl: "templates/route1.html",
-                controller: function($scope){
-                    alert("1");
-                }
+                controller:  'CategoryController'
             })
             .state('route1.list', {
                 url: "/list",
