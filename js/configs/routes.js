@@ -21,7 +21,55 @@ define( function ( ) {
             .state('catalogName.Item', {
                 url:         '/{id:[0-9]{1,5}}-:itemName',
                 templateUrl: 'templates/catalog-item-list.html',
-                controller:  'ItemController'
-            });
+                controller: function() {
+                    alert(0);
+                }
+            })
+
+
+
+
+            .state('route1', {
+                url: "/route1",
+                templateUrl: "templates/route1.html",
+                controller: function($scope){
+                    alert("1");
+                }
+            })
+            .state('route1.list', {
+                url: "/list",
+                templateUrl: "templates/route1.list.html",
+                controller: function($scope){
+                    $scope.items = ["A", "List", "Of", "Items"];
+                    alert("1-1");
+                }
+            })
+
+            .state('route2', {
+                url: "/route2",
+                templateUrl: "templates/route2.html",
+                controller: function($scope){
+                    alert("2");
+                }
+            })
+            .state('route2.list', {
+                url: "/list",
+                templateUrl: "templates/route2.list.html",
+                controller: function($scope){
+                    $scope.things = ["A", "Set", "Of", "Things"];
+                    alert("2-1");
+                }
+            })
+
+
+
+
+
+
+
+
+
+
+
     }];
 });
