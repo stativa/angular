@@ -7,9 +7,6 @@
  </li>
 </ul>
 
-<div ui-view></div>
-
-
  <pagination 
       ng-model="currentPage"
       total-items="items.length"
@@ -19,3 +16,7 @@
       previous-text="назад"
       ng-change="pageChanged()">
  </pagination>
+
+ 
+ 
+ <div ui-view="item"></div>
