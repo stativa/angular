@@ -22,6 +22,8 @@ define( function ( ) {
                 url:         '/{id:[0-9]{1,5}}-:itemName',
                 templateUrl: 'templates/catalog-item-list.html',
                 controller:  'ItemController'
-            });
+            })
+
+
     }];
 });
