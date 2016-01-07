@@ -1,22 +1,20 @@
-<ul style="width: 100%; float:left; list-style:none;">
-	<li ng-repeat="item in filteredItems" style="padding:0 0 20px 0; width: 20%; float:left;">
-    <a ui-sref=".Item({name: category, id: item.id, itemName: item.translit})"><img ng-src="http://halatik.com.ua/view/frontend/img/items/{{item.id}}.jpg" width="50" /></a>
-    <h4>{{item.name}}</h4>
-    <select ng-hide="true"><option ng-repeat="child in item.size" value="{{child}}">{{child}}</option></select>
-    <p>{{item.price}} грн.</p>
- </li>
-</ul>
+<div ng-hide="$state.current.name === 'catalogName.Item'">
+    <ul style="width: 100%; float:left; list-style:none;">
+        <li ng-repeat="item in filteredItems" style="padding:0 0 20px 0; width: 20%; float:left;">
+        <a ui-sref="catalogNameItem({name: category, id: item.id, itemName: item.translit})"><img ng-src="http://halatik.com.ua/view/frontend/img/items/{{item.id}}.jpg" width="50" /></a>
+        <h4>{{item.name}}</h4>
+        <select ng-hide="true"><option ng-repeat="child in item.size" value="{{child}}">{{child}}</option></select>
+        <p>{{item.price}} грн.</p>
+     </li>
+    </ul>
 
- <pagination 
+     <pagination
       ng-model="currentPage"
       total-items="items.length"
-      max-size="maxSize"  
+      max-size="maxSize"
       boundary-links="false"
       next-text="вперед"
       previous-text="назад"
       ng-change="pageChanged()">
- </pagination>
-
- 
- 
- <div ui-view="item"></div>
+    </pagination>
+</div>

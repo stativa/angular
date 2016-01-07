@@ -1,8 +1,9 @@
 define( function() {
     "use strict";
 
-    return ['$http', '$scope', function($http, $scope){
+    return ['$http', '$scope', '$state', function($http, $scope, $state){
         $scope.categories = [];
+        $scope.$state = $state;
 
        // angular.extend(this, $controller('CategoryController', {$scope: $scope}));
         $http.get('categories.json').success(function(data){

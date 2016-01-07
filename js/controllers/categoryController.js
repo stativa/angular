@@ -5,7 +5,7 @@ define( function() {
         $scope.items = [];
         $scope.category = $state.params.name;
 		$scope.numPerPage = 10;
-
+        $scope.$state = $state;
 		var currentPage  = $state.params.page || 1,
 			urlBeginer = "catalog/" + $scope.category;
 
