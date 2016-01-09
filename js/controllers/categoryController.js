@@ -9,7 +9,6 @@ define( function() {
 		var currentPage  = $state.params.page || 1,
 			urlBeginer = "catalog/" + $scope.category;
 
-     //   angular.extend(this, $controller('MenuController', {$scope: $scope}));
         $http.get('items.json').success(function(data){
             for (var i = 0; i < data.length; i++) {
                 if (data[i].cat_translit == $scope.category ) {
@@ -17,7 +16,7 @@ define( function() {
                 }
             }
 
-            //////////////////////////////////////////// copied
+            // TODO: move this code to services
             $scope.pageChanged = function() {
                 $scope.currentPage > 1 ?
                     $location.path(urlBeginer + "/page" + $scope.currentPage) :
@@ -31,7 +30,7 @@ define( function() {
                     end = begin + $scope.numPerPage;
                 $scope.filteredItems = $scope.items.slice(begin, end);
             });
-            ////////////////////////////////////////////////////////
+
         });
     }];
 });

@@ -12,7 +12,6 @@ define( function( require, exports, module ){
 
     app.config( require('configs/config') );
     app.config( require('configs/routes') );
-   // app.config( require('configs/services') );
 
     app.run();
 
