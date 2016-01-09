@@ -7,9 +7,9 @@ define( function() {
 
         $http.get('items.json').success(function(data){
             data.forEach(function(index) {
-                if (index.cat_id == 1) {
-                    $scope.items.push(index);
-                }
+                index.cat_id == 1 && $scope.items.length < numPerPage ?
+                    $scope.items.push(index) : null;
+                
             });
 
         });
