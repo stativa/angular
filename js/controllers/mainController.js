@@ -7,13 +7,10 @@ define( function() {
 
         $http.get('items.json').success(function(data){
             data.forEach(function(index) {
-                if (data[i].cat_id == 1) {
-                    $scope.items.push(data[i]);
+                if (index.cat_id == 1) {
+                    $scope.items.push(index);
                 }
             });
-
-
-
 
         });
     }];

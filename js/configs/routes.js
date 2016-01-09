@@ -5,7 +5,7 @@ define( function ( ) {
         return $stateProvider
             .state('main', {
                 url:         '/',
-                templateUrl: 'templates/catalog.html',
+                templateUrl: 'templates/main.html',
                 controller:  'MainController'
 
             })
