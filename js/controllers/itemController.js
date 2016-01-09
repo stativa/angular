@@ -5,9 +5,6 @@ define( function() {
         var id = $stateParams.id.split('-')[0];
         $scope.item = [];
 
-
-        console.log($state.params);
-
         $http.get('items.json').success(function(data){
             angular.forEach(data, function(index) {
                 if (index.id == id) {

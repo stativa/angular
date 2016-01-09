@@ -20,7 +20,13 @@
         <ul ng-controller="MenuController">
             <li ng-repeat="menu in categories" ng-class="{active: $state.params.name === '{{menu.translit}}'}">
               <a ui-sref="catalogName({name : menu.translit})">{{menu.name}}</a>
+                <ul ng-show="$state.params.name === '{{menu.translit}}'" class="small">
+                    <li ng-repeat="submenu in subcategories[menu.name]"><a ui-sref="catalogName.Subcategory({name: menu.translit, subcategory: submenu.translit})">{{submenu.name}}</a></li>
+                </ul>
+
              </li>
+
+
          </ul>
 
 

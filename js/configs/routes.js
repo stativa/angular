@@ -15,6 +15,15 @@ define( function ( ) {
                 controller:  'CategoryController'
 
             })
+
+            .state('catalogName.Subcategory', {
+                url:         '/:subcategory',
+                templateUrl: 'templates/catalog.html',
+                controller:  'CategoryController'
+
+            })
+
+
            .state('catalogName.Page', {
                 url:         '/page{page:[0-9]{1,2}}',
                 templateUrl: 'templates/catalog.html'
