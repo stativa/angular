@@ -6,7 +6,7 @@ define( function() {
         $scope.item = [];
 
         $http.get('items.json').success(function(data){
-            angular.forEach(data, function(index) {
+            data.forEach(function(index) {
                 if (index.id == id) {
                     $scope.item = index;
                     return;

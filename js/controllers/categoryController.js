@@ -10,11 +10,11 @@ define( function() {
 			urlBeginer = "catalog/" + $scope.category;
 
         $http.get('items.json').success(function(data){
-            for (var i = 0; i < data.length; i++) {
-                if (data[i].cat_translit == $scope.category ) {
-                    $scope.items.push(data[i]);
+            data.forEach(function(index) {
+                if (index.cat_translit == $scope.category ) {
+                    $scope.items.push(index);
                 }
-            }
+            });
 
             // TODO: move this code to services
             $scope.pageChanged = function() {
