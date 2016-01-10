@@ -6,7 +6,7 @@ define( function() {
         $scope.subcategories = [];
         $scope.$state = $state;
 
-        $http.get('categories.json').success(function(data){
+        $http.get('json/categories.json').success(function(data){
             angular.forEach(data, function(index) {
                 if (index.p_id == 0) {
                     $scope.categories.push(index);

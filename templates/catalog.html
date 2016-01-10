@@ -15,6 +15,7 @@
       boundary-links="false"
       next-text="вперед"
       previous-text="назад"
+      ng-hide="items.length <= numPerPage"
       ng-change="pageChanged()">
     </pagination>
 </div>

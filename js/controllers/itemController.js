@@ -5,7 +5,7 @@ define( function() {
         var id = $stateParams.id.split('-')[0];
         $scope.item = [];
 
-        $http.get('items.json').success(function(data){
+        $http.get('json/items.json').success(function(data){
             data.forEach(function(index) {
                 if (index.id == id) {
                     $scope.item = index;

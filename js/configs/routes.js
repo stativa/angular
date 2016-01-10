@@ -15,15 +15,22 @@ define( function ( ) {
                 controller:  'CategoryController'
 
             })
-            .state('catalogName.Subcategory', {
-                url:         '/:subcategory',
-                templateUrl: 'templates/catalog.html',
-                controller:  'SubcategoryController'
-            })
+
            .state('catalogName.Page', {
                 url:         '/page{page:[0-9]{1,2}}',
                 templateUrl: 'templates/catalog.html'
             })
+            .state('catalogNameSubcategory', {
+                url:         '/catalog/:name/:subcategory',
+                templateUrl: 'templates/catalog.html',
+                controller:  'CategoryController'
+            })
+
+            .state('catalogNameSubcategory.Page', {
+                url:         '/page{page:[0-9]{1,2}}',
+                templateUrl: 'templates/catalog.html'
+            })
+
             .state('catalogNameItem', {
                 url:         '/catalog/:name/{id:[0-9]{1,5}}-:itemName',
                 templateUrl: 'templates/catalog-item-list.html',
