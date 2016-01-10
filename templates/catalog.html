@@ -1,6 +1,35 @@
+<div class="filter">
+    <select>
+        <option>Выберете бренд</option>
+
+        <option>Hays</option>
+        <option>Cocoon</option>
+        <option>PlayNew</option>
+        <option>Virginia Secret</option>
+    </select>
+
+    <span>Сортировать по цене: </span>
+    <input type="button" value="&uarr;" />
+    <input type="button" value="&darr;" />
+
+    <span>по размерам: </span>
+    <select>
+        <option>Выберете размер</option>
+
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+        <option>XXL</option>
+        <option>XXXL</option>
+        <option>XXXXL</option>
+    </select>
+</div>
+
+
 <div ng-hide="$state.current.name === 'catalogName.Item'">
-    <ul style="width: 100%; float:left; list-style:none;">
-        <li ng-repeat="item in filteredItems" style="padding:0 0 20px 0; width: 20%; float:left;">
+    <ul class="catalog">
+        <li ng-repeat="item in filteredItems">
         <a ui-sref="catalogNameItem({name: category, id: item.id, itemName: item.translit})"><img ng-src="http://halatik.com.ua/view/frontend/img/items/{{item.id}}.jpg" width="50" /></a>
         <h4>{{item.name}}</h4>
         <select ng-hide="true"><option ng-repeat="child in item.size" value="{{child}}">{{child}}</option></select>
