@@ -10,9 +10,10 @@ requirejs.config({
         'angularRouter':    './vendors/angular-ui-router',
         'angularBootstrap': './vendors/angular-bootstrap.min',
         'angularResource':  './vendors/angular-resource',
+        'ezPaginator':      './vendors/ez-paginator',
+        'ezPaginatorTpl':   './vendors/ez-paginator-tpl',
         'configs':          'js/configs',
-        'controllers':      'js/controllers',
-        'directives':       'js/directives'
+        'controllers':      'js/controllers'
     },
     priority: [
         'angular'
@@ -21,7 +22,9 @@ requirejs.config({
         'angular':  { exports: 'angular' },
         'angularRouter':    ['angular'],
         'angularBootstrap': ['angular'],
-        'angularResource':  ['angular']
+        'angularResource':  ['angular'],
+        'ezPaginator':      ['angular'],
+        'ezPaginatorTpl':   ['angular']
     },
     deps: ['js/app']
 });

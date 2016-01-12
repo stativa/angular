@@ -7,8 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <base href="/" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />   
-  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />  
-
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/ez-paginator.min.css" type="text/css" />
 </head>
 
 
@@ -17,7 +17,7 @@
     <div class="header">title</div>
     <div class="header2">title</div>
     <div class="left">
-        <ul ng-controller="MenuController">
+        <ul ng-controller="MenuController" class="nav">
             <li ng-repeat="menu in categories" ng-class="{active: $state.params.name === '{{menu.translit}}'}">
               <a ui-sref="catalogName({name : menu.translit})">{{menu.name}}</a>
                 <ul ng-show="$state.params.name === '{{menu.translit}}'" class="small">

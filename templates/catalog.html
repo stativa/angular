@@ -1,3 +1,10 @@
+<ul class="breadcrumb">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Private</a></li>
+    <li><a href="#">Pictures</a></li>
+    <li class="active">Vacation</li>
+</ul>
+
 <div class="filter">
     <select>
         <option>Выберете бренд</option>
@@ -27,24 +34,21 @@
 </div>
 
 
+
 <div ng-hide="$state.current.name === 'catalogName.Item'">
     <ul class="catalog">
-        <li ng-repeat="item in filteredItems">
+    <!--    <li ng-repeat="item in items">
         <a ui-sref="catalogNameItem({name: category, id: item.id, itemName: item.translit})"><img ng-src="http://halatik.com.ua/view/frontend/img/items/{{item.id}}.jpg" width="50" /></a>
         <h4>{{item.name}}</h4>
         <select ng-hide="true"><option ng-repeat="child in item.size" value="{{child}}">{{child}}</option></select>
         <p>{{item.price}} грн.</p>
      </li>
+-->
+
+        <li ng-repeat="item in items.slice(((data.pagination.page -1) * data.pagination.limit), ((data.pagination.page) * data.pagination.limit)) track by $index">{{ item.name }}</li>
     </ul>
 
-     <pagination
-      ng-model="currentPage"
-      total-items="items.length"
-      max-size="maxSize"
-      boundary-links="false"
-      next-text="вперед"
-      previous-text="назад"
-      ng-hide="items.length <= numPerPage"
-      ng-change="pageChanged()">
-    </pagination>
+
+    <ez-paginator pagination="data.pagination" show-boundary-links="true"></ez-paginator>
+
 </div>

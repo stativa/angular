@@ -23,8 +23,18 @@ define( function() {
                 }
             });
 
+
+
+            $scope.data = {
+                pagination: {
+                    limit: 10,
+                    items: $scope.items,
+                    page: 1
+                }
+            };
+
             // TODO: move this code to services
-            $scope.pageChanged = function() {
+        /*    $scope.pageChanged = function() {
                 $scope.currentPage > 1 ?
                     $location.path(urlBeginer + "/page" + $scope.currentPage) :
 					$location.path(urlBeginer);
@@ -37,7 +47,7 @@ define( function() {
                     end = begin + $scope.numPerPage;
                 $scope.filteredItems = $scope.items.slice(begin, end);
             });
-
+*/
         });
     }];
 });
