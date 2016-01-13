@@ -33,22 +33,25 @@
     </select>
 </div>
 
+<ul>
+    <li ng-repeat="item in data.pagination.items.slice(((data.pagination.page -1) * data.pagination.limit), ((data.pagination.page) * data.pagination.limit)) track by $index">{{ item.name }}</li>
+</ul>
+<ez-paginator pagination="data.pagination" show-boundary-links="true"></ez-paginator>
+
+
 
 
 <div ng-hide="$state.current.name === 'catalogName.Item'">
-    <ul class="catalog">
-    <!--    <li ng-repeat="item in items">
-        <a ui-sref="catalogNameItem({name: category, id: item.id, itemName: item.translit})"><img ng-src="http://halatik.com.ua/view/frontend/img/items/{{item.id}}.jpg" width="50" /></a>
-        <h4>{{item.name}}</h4>
-        <select ng-hide="true"><option ng-repeat="child in item.size" value="{{child}}">{{child}}</option></select>
-        <p>{{item.price}} грн.</p>
-     </li>
--->
-
-        <li ng-repeat="item in items.slice(((data.pagination.page -1) * data.pagination.limit), ((data.pagination.page) * data.pagination.limit)) track by $index">{{ item.name }}</li>
-    </ul>
+    <!-- <ul class="catalog">
+    -    <li ng-repeat="item in items">
+         <a ui-sref="catalogNameItem({name: category, id: item.id, itemName: item.translit})"><img ng-src="http://halatik.com.ua/view/frontend/img/items/{{item.id}}.jpg" width="50" /></a>
+         <h4>{{item.name}}</h4>
+         <select ng-hide="true"><option ng-repeat="child in item.size" value="{{child}}">{{child}}</option></select>
+         <p>{{item.price}} грн.</p>
+      </li>
 
 
-    <ez-paginator pagination="data.pagination" show-boundary-links="true"></ez-paginator>
-
+         <li ng-repeat="item in items.slice(((data.pagination.page -1) * data.pagination.limit), ((data.pagination.page) * data.pagination.limit)) track by $index">{{ item.name }}</li>
+     </ul>
+     -->
 </div>

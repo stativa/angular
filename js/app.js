@@ -4,13 +4,14 @@ define( function( require, exports, module ){
     require( 'angularRouter' );
     require( 'angularBootstrap' );
     require( 'angularResource' );
+
+    require( 'ezConfigResolver' );
     require( 'ezPaginator' );
-    require( 'ezPaginatorTpl' );
 
     var angular, app;
 
     angular = require( 'angular' );
-    app = angular.module( 'app', [ 'ngResource', 'ui.router', 'ui.bootstrap', 'ez.paginator' ] );
+    app = angular.module( 'app', [ 'ngResource', 'ui.router', 'ui.bootstrap', 'ez.configResolver', 'ez.paginator' ] );
 
     app.config( require('configs/config') );
     app.config( require('configs/routes') );

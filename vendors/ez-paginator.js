@@ -53,7 +53,7 @@ angular.module("ez.paginator").constant("EzPaginatorConfig", {
     limitContainerClass: "dropup"
 });
 
-angular.module("ez.paginator").directive("ezPaginatorLimit", [ "$routeParams", "$location", "EzConfigResolver", "EzPaginatorConfig", function($routeParams, $location, EzConfigResolver, EzPaginatorConfig) {
+angular.module("ez.paginator").directive("ezPaginatorLimit", [ "$stateParams", "$location", "EzConfigResolver", "EzPaginatorConfig", function($stateParams, $location, EzConfigResolver, EzPaginatorConfig) {
     return {
         restrict: "EA",
         scope: {
@@ -80,16 +80,16 @@ angular.module("ez.paginator").directive("ezPaginatorLimit", [ "$routeParams", "
                 if (useCallback) {
                     scope.onChange(scope.pagination);
                 } else {
-                    $routeParams.limit = limit;
-                    $routeParams.page = 1;
-                    $location.search($routeParams);
+                    $stateParams.limit = limit;
+                    $stateParams.page = 1;
+                    $location.search($stateParams);
                 }
             };
         }
     };
 } ]);
 
-angular.module("ez.paginator").directive("ezPager", [ "EzConfigResolver", "EzPaginatorConfig", "$location", "$routeParams", function(EzConfigResolver, EzPaginatorConfig, $location, $routeParams) {
+angular.module("ez.paginator").directive("ezPager", [ "EzConfigResolver", "EzPaginatorConfig", "$location", "$stateParams", function(EzConfigResolver, EzPaginatorConfig, $location, $stateParams) {
     return {
         restrict: "EA",
         scope: {
@@ -129,8 +129,8 @@ angular.module("ez.paginator").directive("ezPager", [ "EzConfigResolver", "EzPag
                 if (useCallback) {
                     scope.onChange(scope.pagination);
                 } else {
-                    $routeParams.page = scope.pagination.page;
-                    $location.search($routeParams);
+                    $stateParams.page = scope.pagination.page;
+                    $location.search($stateParams);
                 }
             };
             init();
@@ -138,7 +138,7 @@ angular.module("ez.paginator").directive("ezPager", [ "EzConfigResolver", "EzPag
     };
 } ]);
 
-angular.module("ez.paginator").directive("ezPaginator", [ "$location", "$routeParams", "EzPaginatorConfig", "EzConfigResolver", function($location, $routeParams, EzPaginatorConfig, EzConfigResolver) {
+angular.module("ez.paginator").directive("ezPaginator", [ "$location", "$stateParams", "EzPaginatorConfig", "EzConfigResolver", function($location, $stateParams, EzPaginatorConfig, EzConfigResolver) {
     return {
         restrict: "EA",
         scope: {
@@ -211,8 +211,8 @@ angular.module("ez.paginator").directive("ezPaginator", [ "$location", "$routePa
                     if (useCallback) {
                         scope.onChange(scope.pagination);
                     } else {
-                        $routeParams.page = scope.pagination.page;
-                        $location.search($routeParams);
+                        $stateParams.page = scope.pagination.page;
+                        $location.search($stateParams);
                     }
                     if (!scope.pages.length || scope.pages[0].number > scope.pagination.page || !scope.pages[scope.config.maxPages - 1] || scope.pages[scope.config.maxPages - 1].number < scope.pagination.page) {
                         draw();
@@ -225,7 +225,7 @@ angular.module("ez.paginator").directive("ezPaginator", [ "$location", "$routePa
     };
 } ]);
 
-angular.module("ez.paginator").directive("ezPaginatorState", [ "$routeParams", "$location", "EzConfigResolver", "EzPaginatorConfig", function($routeParams, $location, EzConfigResolver, EzPaginatorConfig) {
+angular.module("ez.paginator").directive("ezPaginatorState", [ "$stateParams", "$location", "EzConfigResolver", "EzPaginatorConfig", function($stateParams, $location, EzConfigResolver, EzPaginatorConfig) {
     return {
         restrict: "EA",
         scope: {
@@ -262,9 +262,9 @@ angular.module("ez.paginator").directive("ezPaginatorState", [ "$routeParams", "
                 if (useCallback) {
                     scope.onChange(scope.pagination);
                 } else {
-                    $routeParams.state = state.id;
-                    $routeParams.page = 1;
-                    $location.search($routeParams);
+                    $stateParams.state = state.id;
+                    $stateParams.page = 1;
+                    $location.search($stateParams);
                 }
             };
         }

@@ -25,13 +25,58 @@ define( function() {
 
 
 
+            var names = [
+                {name: 'Hi'},
+                {name: 'there'},
+                {name: 'this'},
+                {name: 'is'},
+                {name: 'an'},
+                {name: 'opinionated'},
+                {name: 'paginator'},
+                {name: 'directive.'},
+                {name: 'It'},
+                {name: 'just'},
+                {name: 'adds'},
+                {name: 'some'},
+                {name: 'bells'},
+                {name: 'and'},
+                {name: 'whistles'},
+                {name: 'to'},
+                {name: 'angular-bootsraps'},
+                {name: 'paginator'}
+            ];
+
+            var items = [];
+            var deletedItems = [];
+            var index;
+
+            for (var i = 0; i <= 200; i++) {
+                index = Math.floor(Math.random() * (17 + 1));
+
+                items.push({name: names[index].name + ' - ' + i});
+            }
+
+            for (var j = 0; j <= 50; j++) {
+                index = Math.floor(Math.random() * (17 + 1));
+
+                deletedItems.push({name: names[index].name + ' - (deleted)' + j});
+            }
+
             $scope.data = {
                 pagination: {
-                    limit: 10,
-                    items: $scope.items,
-                    page: 1
+                    limit: 5,
+                    items: items
                 }
             };
+
+
+
+
+
+
+
+
+
 
             // TODO: move this code to services
         /*    $scope.pageChanged = function() {
