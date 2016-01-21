@@ -20,12 +20,15 @@ define( function ( ) {
                 url:         '/page{page:[0-9]{1,2}}',
                 templateUrl: 'templates/catalog.html'
             })
-            .state('catalogNameSubcategory', {
+
+            // if you go on item page and refresh, you will be redirected to this state
+            // TODO: should be fixed
+         /*   .state('catalogNameSubcategory', {
                 url:         '/catalog/:name/:subcategory',
                 templateUrl: 'templates/catalog.html',
                 controller:  'CategoryController'
             })
-
+*/
             .state('catalogNameSubcategory.Page', {
                 url:         '/page{page:[0-9]{1,2}}',
                 templateUrl: 'templates/catalog.html'

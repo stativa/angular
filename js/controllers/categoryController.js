@@ -3,6 +3,7 @@ define( function() {
 
     return ['$http', '$scope', '$location', '$controller', '$state', function( $http, $scope, $location, $controller, $state ) {
         $scope.items = [];
+        $scope.breadcrumb = [];
         $scope.category = $state.params.name;
         $scope.subcategory = $state.params.subcategory;
 
@@ -22,6 +23,13 @@ define( function() {
                     $scope.items.push(index);
                 }
             });
+
+
+
+
+            $scope.breadcrumb.push($scope.items[0].cat_name);
+            $scope.breadcrumb.push($scope.items[0].subcat_id);
+
 
 
 
@@ -65,7 +73,7 @@ define( function() {
             $scope.data = {
                 pagination: {
                     limit: 5,
-                    items: items
+                    items: $scope.items
                 }
             };
 

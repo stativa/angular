@@ -11,7 +11,7 @@ define( function( require, exports, module ){
     var angular, app;
 
     angular = require( 'angular' );
-    app = angular.module( 'app', [ 'ngResource', 'ui.router', 'ui.bootstrap', 'ez.configResolver', 'ez.paginator' ] );
+    app = angular.module( 'app', [ 'ngResource', 'ui.bootstrap', 'ez.paginator' , 'ez.configResolver', 'ui.router'] );
 
     app.config( require('configs/config') );
     app.config( require('configs/routes') );
@@ -19,6 +19,7 @@ define( function( require, exports, module ){
     app.run();
 
     require('configs/controllers')(app);
+    require('configs/directives')(app);
 
     //bootstrap angular
     angular.element( document.documentElement ).ready( function () {
