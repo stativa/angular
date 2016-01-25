@@ -5,8 +5,9 @@ define( function() {
         $scope.items = [];
         $scope.category = $state.params.name;
         $scope.subcategory = $state.params.subcategory;
+        $scope.breadcrumb = [];
 
-		$scope.numPerPage = 10;
+        $scope.numPerPage = 10;
         $scope.$state = $state;
 		var currentPage  = $state.params.page || 1,
 			urlBeginer = "catalog/" + $scope.category + ($scope.subcategory ? "/" + $scope.subcategory  : "");
@@ -22,6 +23,10 @@ define( function() {
                     $scope.items.push(index);
                 }
             });
+
+            $scope.breadcrumb.push($scope.items[0].cat_name);
+            $scope.breadcrumb.push($scope.items[0].subcat_id);
+
 
             // TODO: move this code to services
             $scope.pageChanged = function() {

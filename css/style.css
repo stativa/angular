@@ -12,7 +12,7 @@ img {border:none;}
 
 
 .end_content {position:relative; height:100px; clear:both;}
-.txt {padding-left:200px;padding-right:200px;}
+.txt {padding-left:220px;padding-right:200px;}
 
 
 
@@ -24,7 +24,7 @@ img {border:none;}
 
 
 .left ul { list-style: none;}
-.left ul li.active {border:1px solid red;}
+.left ul li.active { background: ghostwhite;}
 .left ul ul { margin-left: 15px;}
 
 

@@ -16,6 +16,7 @@ define( function( require, exports, module ){
     app.run();
 
     require('configs/controllers')(app);
+    require('configs/directives')(app);
 
     //bootstrap angular
     angular.element( document.documentElement ).ready( function () {
