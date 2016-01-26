@@ -11,7 +11,7 @@ define( function() {
         $scope.$state = $state;
 		var currentPage  = $state.params.page || 1;
 		
-		$scope.setPageParam = function(currentPage){
+		$scope.setPageSearch = function(currentPage){
 			$location.search("page", currentPage == 1 ? null : currentPage);
 		};
 		
@@ -35,7 +35,7 @@ define( function() {
 
             // TODO: move this code to services
             $scope.pageChanged = function() {							
-				$scope.setPageParam($scope.currentPage);
+				$scope.setPageSearch($scope.currentPage);
                 window.scrollTo(0,0);
             };
 
