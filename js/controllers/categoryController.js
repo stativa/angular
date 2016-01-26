@@ -15,7 +15,7 @@ define( function() {
 			$location.search("page", currentPage == 1 ? null : currentPage);
 		};
 		
-		$scope.setPageParam(currentPage);
+		$scope.setPageSearch(currentPage);
 	
         $http.get('json/items.json').success(function(data){
             data.forEach(function(index) {
