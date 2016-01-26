@@ -10,18 +10,13 @@ define( function ( ) {
 
             })
             .state('catalogName', {
-                url:         '/catalog/:name',
+                url:         '/catalog/:name?page',
                 templateUrl: 'templates/catalog.html',
                 controller:  'CategoryController'
-
             })
-
-           .state('catalogName.Page', {
-                url:         '/page{page:[0-9]{1,2}}',
-                templateUrl: 'templates/catalog.html'
-            })
+			
             .state('catalogNameSubcategory', {
-                url:         '/catalog/:name/:subcategory',
+                url:         '/catalog/:name/:subcategory?page',
                 templateUrl: 'templates/catalog.html',
                 controller:  'CategoryController'
             })

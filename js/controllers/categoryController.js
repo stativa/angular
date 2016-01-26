@@ -9,9 +9,14 @@ define( function() {
 
         $scope.numPerPage = 10;
         $scope.$state = $state;
-		var currentPage  = $state.params.page || 1,
-			urlBeginer = "catalog/" + $scope.category + ($scope.subcategory ? "/" + $scope.subcategory  : "");
-
+		var currentPage  = $state.params.page || 1;
+		
+		$scope.setPageParam = function(currentPage){
+			$location.search("page", currentPage == 1 ? null : currentPage);
+		};
+		
+		$scope.setPageParam(currentPage);
+	
         $http.get('json/items.json').success(function(data){
             data.forEach(function(index) {
                 if ($scope.subcategory) {
@@ -29,10 +34,8 @@ define( function() {
 
 
             // TODO: move this code to services
-            $scope.pageChanged = function() {
-                $scope.currentPage > 1 ?
-                    $location.path(urlBeginer + "/page" + $scope.currentPage) :
-					$location.path(urlBeginer);
+            $scope.pageChanged = function() {							
+				$scope.setPageParam($scope.currentPage);
                 window.scrollTo(0,0);
             };
 
