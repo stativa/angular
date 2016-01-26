@@ -6,10 +6,23 @@ define( function() {
         $scope.category = $state.params.name;
         $scope.subcategory = $state.params.subcategory;
         $scope.breadcrumb = [];
-
         $scope.numPerPage = 10;
         $scope.$state = $state;
-		var currentPage  = $state.params.page || 1;
+        var currentPage  = $state.params.page || 1;
+
+        $scope.selectBrand = {
+            availableOptions: [
+                {id: 'hays', name: 'Hays'},
+                {id: 'cocoon', name: 'Cocoon'},
+                {id: 'virginia_secret', name: 'Virginia Secret'}
+            ],
+            change: function(){
+                var selected = $scope.selectBrand.selected;
+                $location.search("brand", selected ? selected : null);
+            },
+            selected: "hays"
+        };
+
 		
 		$scope.setPageSearch = function(currentPage){
 			$location.search("page", currentPage == 1 ? null : currentPage);
@@ -29,8 +42,8 @@ define( function() {
                 }
             });
 
-            $scope.breadcrumb.push($scope.items[0].cat_name);
-            $scope.breadcrumb.push($scope.items[0].subcat_id);
+        //    $scope.breadcrumb.push($scope.items[0].cat_name);
+       //     $scope.breadcrumb.push($scope.items[0].subcat_id);
 
 
             // TODO: move this code to services
@@ -45,6 +58,11 @@ define( function() {
                     end = begin + $scope.numPerPage;
                 $scope.filteredItems = $scope.items.slice(begin, end);
             });
+
+
+
+
+
 
         });
     }];

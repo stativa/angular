@@ -1,13 +1,9 @@
 <bread-crumb></bread-crumb>
 
 <div class="filter">
-    <select>
-        <option>Выберете бренд</option>
-
-        <option>Hays</option>
-        <option>Cocoon</option>
-        <option>PlayNew</option>
-        <option>Virginia Secret</option>
+    <select ng-change="selectBrand.change()" ng-model="selectBrand.selected">
+        <option value="">Выберете бренд</option>
+        <option ng-repeat="option in selectBrand.availableOptions" value="{{option.id}}">{{option.name}}</option>
     </select>
 
     <span>Сортировать по цене: </span>

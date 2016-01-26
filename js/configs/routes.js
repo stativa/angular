@@ -14,17 +14,14 @@ define( function ( ) {
                 templateUrl: 'templates/catalog.html',
                 controller:  'CategoryController'
             })
-			
+
             .state('catalogNameSubcategory', {
                 url:         '/catalog/:name/:subcategory?page',
                 templateUrl: 'templates/catalog.html',
                 controller:  'CategoryController'
             })
 
-            .state('catalogNameSubcategory.Page', {
-                url:         '/page{page:[0-9]{1,2}}',
-                templateUrl: 'templates/catalog.html'
-            })
+
 
             .state('catalogNameItem', {
                 url:         '/catalog/:name/{id:[0-9]{1,5}}-:itemName',
