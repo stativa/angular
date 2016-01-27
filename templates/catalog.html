@@ -1,9 +1,11 @@
 <bread-crumb></bread-crumb>
 
 <div class="filter">
-    <select ng-change="selectBrand.change()" name="selectBrand" ng-model="selectBrand.selected">
+    <select ng-change="selectBrand.change()" name="selectBrand" ng-model="selectBrand.selected"
+	 ng-options="option.name for option in selectBrand.availableOptions track by option.id"
+	>
         <option value="">Выберете бренд</option>
-        <option ng-repeat="option in selectBrand.availableOptions" value="{{option.id}}">{{option.name}}</option>
+  
     </select>
 
     <span>Сортировать по цене: </span>

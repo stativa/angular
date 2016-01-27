@@ -12,17 +12,19 @@ define( function() {
 
         $scope.selectBrand = {
             availableOptions: [
-				{id: ' ', name: 'Выберете бренд'},
                 {id: 'hays', name: 'Hays'},
                 {id: 'cocoon', name: 'Cocoon'},
                 {id: 'virginia_secret', name: 'Virginia Secret'}
             ],
             change: function(){
-                var selected = $scope.selectBrand.selected;
+                var selected = $scope.selectBrand.selected.id;
                 $location.search("brand", selected ? selected : null);
-            },
-            selected: /*$scope.selectBrand.availableOptions[$state.params.brand] || */""
+            }
+            
         };
+		
+		$scope.selectBrand.selected = $scope.selectBrand.availableOptions[1];
+		
 		
 		$scope.selectSize = {
             availableOptions: [
