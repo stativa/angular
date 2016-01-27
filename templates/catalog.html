@@ -1,7 +1,7 @@
 <bread-crumb></bread-crumb>
 
 <div class="filter">
-    <select ng-change="selectBrand.change()" ng-model="selectBrand.selected">
+    <select ng-change="selectBrand.change()" name="selectBrand" ng-model="selectBrand.selected">
         <option value="">Выберете бренд</option>
         <option ng-repeat="option in selectBrand.availableOptions" value="{{option.id}}">{{option.name}}</option>
     </select>
@@ -11,21 +11,16 @@
     <input type="button" value="&darr;" />
 
     <span>по размерам: </span>
-    <select>
-        <option>Выберете размер</option>
-
-        <option>S</option>
-        <option>M</option>
-        <option>L</option>
-        <option>XL</option>
-        <option>XXL</option>
-        <option>XXXL</option>
-        <option>XXXXL</option>
+	<select ng-change="selectSize.change()" name="selectSize" ng-model="selectSize.selected">
+        <option value="">Выберете размер</option>
+        <option ng-repeat="option in selectSize.availableOptions" value="{{option.id}}">{{option.name}}</option>
     </select>
+	
+	
 </div>
 
 
-<div ng-hide="$state.current.name === 'catalogName.Item'">
+<div>
     <ul class="catalog">
         <li ng-repeat="item in filteredItems">
         <a ui-sref="catalogNameItem({name: category, id: item.id, itemName: item.translit})"><img ng-src="http://halatik.com.ua/view/frontend/img/items/{{item.id}}.jpg" width="50" /></a>

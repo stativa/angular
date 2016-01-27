@@ -12,6 +12,7 @@ define( function() {
 
         $scope.selectBrand = {
             availableOptions: [
+				{id: ' ', name: 'Выберете бренд'},
                 {id: 'hays', name: 'Hays'},
                 {id: 'cocoon', name: 'Cocoon'},
                 {id: 'virginia_secret', name: 'Virginia Secret'}
@@ -20,10 +21,27 @@ define( function() {
                 var selected = $scope.selectBrand.selected;
                 $location.search("brand", selected ? selected : null);
             },
-            selected: "hays"
+            selected: /*$scope.selectBrand.availableOptions[$state.params.brand] || */""
+        };
+		
+		$scope.selectSize = {
+            availableOptions: [
+                {id: 's', name: 'S'},
+                {id: 'm', name: 'M'},
+                {id: 'l', name: 'L'},
+				{id: 'xl', name: 'XL'},
+				{id: 'xxl', name: 'XXL'},
+				{id: 'xxxl', name: 'XXXL'},
+				{id: 'xxxxl', name: 'XXXXL'}
+            ],
+            change: function(){
+                var selected = $scope.selectSize.selected;
+                $location.search("size", selected ? selected : null);
+            },
+            selected: "s"
         };
 
-		
+		// if page = 1, will remove it from url
 		$scope.setPageSearch = function(currentPage){
 			$location.search("page", currentPage == 1 ? null : currentPage);
 		};
@@ -42,10 +60,6 @@ define( function() {
                 }
             });
 
-        //    $scope.breadcrumb.push($scope.items[0].cat_name);
-       //     $scope.breadcrumb.push($scope.items[0].subcat_id);
-
-
             // TODO: move this code to services
             $scope.pageChanged = function() {							
 				$scope.setPageSearch($scope.currentPage);
@@ -58,11 +72,9 @@ define( function() {
                     end = begin + $scope.numPerPage;
                 $scope.filteredItems = $scope.items.slice(begin, end);
             });
-
-
-
-
-
+			
+			$scope.breadcrumb.push($scope.items[0].cat_name);
+            $scope.breadcrumb.push($scope.items[0].subcat_id);
 
         });
     }];

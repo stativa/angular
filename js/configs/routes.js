@@ -7,27 +7,26 @@ define( function ( ) {
                 url:         '/',
                 templateUrl: 'templates/main.html',
                 controller:  'MainController'
-
             })
             .state('catalogName', {
-                url:         '/catalog/:name?page',
+                url:         '/catalog/:name?page&brand&size&sort',
                 templateUrl: 'templates/catalog.html',
                 controller:  'CategoryController'
             })
-
-            .state('catalogNameSubcategory', {
-                url:         '/catalog/:name/:subcategory?page',
-                templateUrl: 'templates/catalog.html',
-                controller:  'CategoryController'
-            })
-
-
-
-            .state('catalogNameItem', {
+			
+			.state('catalogNameItem', {
                 url:         '/catalog/:name/{id:[0-9]{1,5}}-:itemName',
                 templateUrl: 'templates/catalog-item-list.html',
                 controller:  'ItemController'
             })
+
+            .state('catalogNameSubcategory', {
+                url:         '/catalog/:name/:subcategory?page&brand&size&sort',
+                templateUrl: 'templates/catalog.html',
+                controller:  'CategoryController'
+            })
+
+            
 
 
     }];

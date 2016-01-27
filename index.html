@@ -7,8 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <base href="/" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />   
-  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />  
-
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />  
 </head>
 
 
@@ -17,7 +16,7 @@
     <div class="header">title</div>
     <div class="header2">title</div>
     <div class="left">
-        <ul ng-controller="MenuController" class="nav">
+        <ul ng-controller="MenuController" class="nav" ng-click="click()">
             <li ng-repeat="menu in categories" ng-class="{active: $state.params.name === '{{menu.translit}}'}">
               <a ui-sref="catalogName({name : menu.translit})">{{menu.name}}</a>
                 <ul ng-show="$state.params.name === '{{menu.translit}}'" class="small">
@@ -25,8 +24,6 @@
                 </ul>
              </li>
          </ul>
-
-
     </div><!-- /left -->
 
     <div class="right">
@@ -42,9 +39,7 @@
 </div><!-- /conteiner -->
 
 
-    <div class="footer">
-        
-  </div>
+    <div class="footer"> </div>
 
 <script data-main="/js/index.js" src="/vendors/require.js"></script>
 </body>
