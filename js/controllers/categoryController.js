@@ -12,6 +12,7 @@ define( function() {
 
         $scope.selectBrand = {
             availableOptions: [
+                {id: '', name: 'Выберете бренд'},
                 {id: 'hays', name: 'Hays'},
                 {id: 'cocoon', name: 'Cocoon'},
                 {id: 'virginia_secret', name: 'Virginia Secret'}
@@ -19,15 +20,14 @@ define( function() {
             change: function(){
                 var selected = $scope.selectBrand.selected.id;
                 $location.search("brand", selected ? selected : null);
-            }
-            
+                $location.search("page", null);
+            },
+            selected: ""
         };
-		
-		$scope.selectBrand.selected = $scope.selectBrand.availableOptions[1];
-		
 		
 		$scope.selectSize = {
             availableOptions: [
+                {id: '', name: 'Выберете размер'},
                 {id: 's', name: 'S'},
                 {id: 'm', name: 'M'},
                 {id: 'l', name: 'L'},
@@ -37,11 +37,26 @@ define( function() {
 				{id: 'xxxxl', name: 'XXXXL'}
             ],
             change: function(){
-                var selected = $scope.selectSize.selected;
+                var selected = $scope.selectSize.selected.id;
                 $location.search("size", selected ? selected : null);
+                $location.search("page", null);
             },
-            selected: "s"
+            selected: ""
         };
+
+        $scope.sort = function(type) {
+            $location.search("sort", type);
+        };
+
+        $scope.selectBrand.availableOptions.forEach(function(index, i) {
+            index.id ==  $state.params.brand ?
+                $scope.selectBrand.selected = $scope.selectBrand.availableOptions[i] : null;
+        });
+
+        $scope.selectSize.availableOptions.forEach(function(index, i) {
+            index.id ==  $state.params.size ?
+                $scope.selectSize.selected = $scope.selectSize.availableOptions[i] : null;
+        });
 
 		// if page = 1, will remove it from url
 		$scope.setPageSearch = function(currentPage){
