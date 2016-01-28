@@ -11,21 +11,16 @@ define( function() {
         var currentPage  = $state.params.page || 1;	
 		
 		$scope.filter = {
-			selectBrand : {
+			brand : {
 				availableOptions: [
 					{id: '', name: 'Выберете бренд'},
 					{id: 'hays', name: 'Hays'},
 					{id: 'cocoon', name: 'Cocoon'},
 					{id: 'virginia_secret', name: 'Virginia Secret'}
 				],
-				change: function(){
-					var selected = $scope.filter.selectBrand.selected.id;
-					$location.search("brand", selected ? selected : null);
-					$location.search("page", null);
-				},
 				selected: ""
 			},		
-			selectSize : {
+			size : {
 				availableOptions: [
 					{id: '', name: 'Выберете размер'},
 					{id: 's', name: 'S'},
@@ -36,28 +31,30 @@ define( function() {
 					{id: 'xxxl', name: 'XXXL'},
 					{id: 'xxxxl', name: 'XXXXL'}
 				],
-				change: function(){
-					var selected = $scope.filter.selectSize.selected.id;
-					$location.search("size", selected ? selected : null);
-					$location.search("page", null);
-				},
-				selected: ""
+				selected: $scope.filter.size.availableOptions
 			},			
 			sort: function(type) {
 				$location.search("sort", type);
 			}			
 		};
+			
+		$scope.filterConfig = {
+			change: function(param){
+				var selected = $scope.filter[param].selected.id;
+				$location.search(param, selected ? selected : null);
+				$location.search("page", null);
+			}
+		};
 		
-		$scope.filter.selectBrand.availableOptions.forEach(function(index, i) {
+		$scope.filter.brand.availableOptions.forEach(function(index, i) {
             index.id ==  $state.params.brand ?
-                $scope.filter.selectBrand.selected = $scope.filter.selectBrand.availableOptions[i] : null;
+                $scope.filter.brand.selected = $scope.filter.brand.availableOptions[i] : null;
         });
 
-        $scope.filter.selectSize.availableOptions.forEach(function(index, i) {
+        $scope.filter.size.availableOptions.forEach(function(index, i) {
             index.id ==  $state.params.size ?
-                $scope.filter.selectSize.selected = $scope.filter.selectSize.availableOptions[i] : null;
-        });
-		
+                $scope.filter.size.selected = $scope.filter.size.availableOptions[i] : null;
+        });	
 
 		// if page = 1, will remove it from url
 		$scope.setPageSearch = function(currentPage){

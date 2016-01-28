@@ -2,10 +2,10 @@
 
 <div class="filter">
     <select
-        ng-change="filter.selectBrand.change()"
-        name="selectBrand"
-        ng-model="filter.selectBrand.selected"
-        ng-options="option.name for option in filter.selectBrand.availableOptions track by option.id">
+        ng-change="filterConfig.change('brand')"
+        name="brand"
+        ng-model="filter.brand.selected"
+        ng-options="option.name for option in filter.brand.availableOptions track by option.id">
         <option value="">Выберете бренд</option>
     </select>
 
@@ -15,10 +15,10 @@
 
     <span>размеры: </span>
     <select
-            ng-change="filter.selectSize.change()"
-            name="selectSize"
-            ng-model="filter.selectSize.selected"
-            ng-options="option.name for option in filter.selectSize.availableOptions track by option.id">
+            ng-change="filterConfig.change('size')"
+            name="size"
+            ng-model="filter.size.selected"
+            ng-options="option.name for option in filter.size.availableOptions track by option.id">
             <option value="">Выберете размер</option>
     </select>
 </div>
