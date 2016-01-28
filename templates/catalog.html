@@ -2,23 +2,23 @@
 
 <div class="filter">
     <select
-        ng-change="selectBrand.change()"
+        ng-change="filter.selectBrand.change()"
         name="selectBrand"
-        ng-model="selectBrand.selected"
-        ng-options="option.name for option in selectBrand.availableOptions track by option.id">
+        ng-model="filter.selectBrand.selected"
+        ng-options="option.name for option in filter.selectBrand.availableOptions track by option.id">
         <option value="">Выберете бренд</option>
     </select>
 
     <span>Сортировать по цене: </span>
-    <input type="button" value="&uarr;" ng-click="sort('asc')" />
-    <input type="button" value="&darr;" ng-click="sort('desc')" />
+    <input type="button" value="&uarr;" ng-click="filter.sort('asc')" />
+    <input type="button" value="&darr;" ng-click="filter.sort('desc')" />
 
     <span>размеры: </span>
     <select
-            ng-change="selectSize.change()"
+            ng-change="filter.selectSize.change()"
             name="selectSize"
-            ng-model="selectSize.selected"
-            ng-options="option.name for option in selectSize.availableOptions track by option.id">
+            ng-model="filter.selectSize.selected"
+            ng-options="option.name for option in filter.selectSize.availableOptions track by option.id">
             <option value="">Выберете размер</option>
     </select>
 </div>
