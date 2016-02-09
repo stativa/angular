@@ -31,7 +31,7 @@ define( function() {
 					{id: 'xxxl', name: 'XXXL'},
 					{id: 'xxxxl', name: 'XXXXL'}
 				],
-				selected: $scope.filter.size.availableOptions
+				selected: ""
 			},			
 			sort: function(type) {
 				$location.search("sort", type);
