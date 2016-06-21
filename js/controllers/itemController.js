@@ -8,17 +8,11 @@ define( function() {
         $scope.item = [];
         $scope.breadcrumb = [];
 
-        $http.get('json/items.json').success(function(data){
-            data.forEach(function(index) {
-                if (index.id == id) {
-                    $scope.item = index;
-                    $scope.breadcrumb.push(index.cat_name);
-                    $scope.breadcrumb.push(index.subcat_id);
-                    $scope.breadcrumb.push(index.name);
-
-                    return;
-                }
-            });
+        $http.get('/api/items/' + id).success(function(data){
+            $scope.item = data[0];
+            $scope.breadcrumb.push(data[0].cat_name);
+            $scope.breadcrumb.push(data[0].subcat_id);
+            $scope.breadcrumb.push(data[0].name);
         });
     }];
 });
