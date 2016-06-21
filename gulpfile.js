@@ -28,7 +28,8 @@ gulp.task( 'server', function () {
     watch:      ['css', 'js', 'templates','node'],
     ext:        'html,js,css',
     delay:      2,
-    nodeArgs:   ['--debug']
+    nodeArgs:   ['--debug'],
+	fallback: 'index.html'
   })
       .on('start', function () {
         console.log('START');

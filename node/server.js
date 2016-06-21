@@ -1,10 +1,14 @@
 var http = require("http");
 var url = require("url");
+var fallback = require('express-history-api-fallback');
 var express = require('express');
 var request = require('request');
 
 var app = express();
-app.use(express.static('./'));
+
+var root = "./";
+app.use(express.static(root));
+app.use(fallback('index.html', { root: root }));
 
 var mysql = require('mysql');
 
