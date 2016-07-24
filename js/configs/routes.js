@@ -9,7 +9,7 @@ define( function ( ) {
                 controller:  'MainController'
             })
             .state('catalogName', {
-                url:         '/catalog/:name?page&brand&size&sort',
+                url:         '/catalog/:name?brand&size&sort',
                 templateUrl: 'templates/catalog.html',
                 controller:  'CategoryController'
             })

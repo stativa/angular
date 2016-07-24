@@ -14,12 +14,12 @@ define( function() {
 			brand : {
 				availableOptions: [
 					{id: '', name: 'Выберете бренд'},
-					{id: 'hays', name: 'Hays'},
-					{id: 'cocoon', name: 'Cocoon'},
-					{id: 'virginia_secret', name: 'Virginia Secret'}
+					{id: '4', name: 'Hays'},
+					{id: '27', name: 'Cocoon'},
+					{id: '29', name: 'Virginia Secret'}
 				],
 				selected: ""
-			},		
+			},
 			size : {
 				availableOptions: [
 					{id: '', name: 'Выберете размер'},
@@ -32,12 +32,12 @@ define( function() {
 					{id: 'xxxxl', name: 'XXXXL'}
 				],
 				selected: ""
-			},			
+			},
 			sort: function(type) {
 				$location.search("sort", type);
-			}			
+			}
 		};
-			
+
 		$scope.filterConfig = {
 			change: function(param){
 				var selected = $scope.filter[param].selected.id;
@@ -45,7 +45,7 @@ define( function() {
 				$location.search("page", null);
 			}
 		};
-		
+
 		$scope.filter.brand.availableOptions.forEach(function(index, i) {
             index.id ==  $state.params.brand ?
                 $scope.filter.brand.selected = $scope.filter.brand.availableOptions[i] : null;
@@ -54,43 +54,77 @@ define( function() {
         $scope.filter.size.availableOptions.forEach(function(index, i) {
             index.id ==  $state.params.size ?
                 $scope.filter.size.selected = $scope.filter.size.availableOptions[i] : null;
-        });	
+        });
 
 		// if page = 1, will remove it from url
 		$scope.setPageSearch = function(currentPage){
 			$location.search("page", currentPage == 1 ? null : currentPage);
 		};
-		
+
 		$scope.setPageSearch(currentPage);
-	
-        $http.get('json/items.json').success(function(data){
-            data.forEach(function(index) {
-                if ($scope.subcategory) {
-                    index.subcat_id == $scope.subcategory ? $scope.items.push(index) : null;
-                    return;
-                }
 
-                if (index.cat_translit == $scope.category ) {
-                    $scope.items.push(index);
-                }
-            });
 
-            // TODO: move this code to services
-            $scope.pageChanged = function() {							
-				$scope.setPageSearch($scope.currentPage);
-                window.scrollTo(0,0);
-            };
+		var query;
+		if ($scope.subcategory) {
+			query = '/api/items/subcategory/' + $scope.subcategory;
 
-			$scope.currentPage = currentPage;
-            $scope.$watch('currentPage + numPerPage', function() {
-                var begin = (($scope.currentPage - 1) * $scope.numPerPage),
-                    end = begin + $scope.numPerPage;
-                $scope.filteredItems = $scope.items.slice(begin, end);
-            });
-			
-			$scope.breadcrumb.push($scope.items[0].cat_name);
-            $scope.breadcrumb.push($scope.items[0].subcat_id);
+		} else {
+			query = '/api/items/category/' + $scope.category;
+		}
 
-        });
+		var config = {
+			params: {
+				page: currentPage,
+				size: $scope.filter.size.selected.id,
+				sort: $location.search().sort,
+				brand: $scope.filter.brand.selected.id
+			}
+		};
+
+		$http.get(query, config).then(
+			function(response){
+				$scope.items = response.data;
+
+				// TODO: move this code to services
+				$scope.pageChanged = function() {
+					$scope.setPageSearch($scope.currentPage);
+					window.scrollTo(0,0);
+				};
+
+				$scope.currentPage = currentPage;
+				$scope.$watch('currentPage + numPerPage', function() {
+					var begin = (($scope.currentPage - 1) * $scope.numPerPage),
+						end = begin + $scope.numPerPage;
+					$scope.filteredItems = $scope.items.slice(begin, end);
+				});
+
+				$scope.breadcrumb.push($scope.items[0].cat_name);
+				$scope.breadcrumb.push($scope.items[0].subcat_id);
+			},
+			function(response){
+				// failure call back
+			}
+		);
+
+
+		query = '/api/brands/';
+		if ($scope.subcategory) {
+			query += $scope.subcategory;
+
+		} else {
+			query += $scope.category;
+		}
+
+		$http.get(query).then(
+			function(response){
+				//$scope.filter.brand.availableOptions = response.data;
+			},
+			function(response){
+				// failure call back
+			}
+		)
+
+
+
     }];
 });
